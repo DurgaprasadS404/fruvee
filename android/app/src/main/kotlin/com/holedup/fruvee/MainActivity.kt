@@ -1,0 +1,6 @@
+package com.holedup.fruvee
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
