@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "206889965807",
+    "project_id": "fruvee-998d3",
+    "storage_bucket": "fruvee-998d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206889965807:android:a4a590e34215975952a31a",
+        "android_client_info": {
+          "package_name": "com.holedup.fruvee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206889965807-b9ul9dgqicla35icehmc23gdob7bu3dh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoLyy8Szz6GSdU4GRJWVyZ2FUG0cV2Pbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206889965807-b9ul9dgqicla35icehmc23gdob7bu3dh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
