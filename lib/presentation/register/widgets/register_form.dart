@@ -1,3 +1,5 @@
+import 'package:another_flushbar/flushbar.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruvee/application/auth/sign_in_form/sign_in_form_bloc.dart';
@@ -9,10 +11,25 @@ class RegisterForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
-        // TODO: implement listener
+        state.authFailureSuccessOrFailureOption.fold(() => null, (either) {
+          either.fold((failure) {
+            FlushbarHelper.createError(
+                    message: failure.map(
+                        cancelledByUser: (_) => 'Cancelled',
+                        serverError: (_) => 'Server Error',
+                        emailAlreadyInUse: (_) => 'Email already in use',
+                        invalidEmailAndPasswordCombination: (_) =>
+                            'Invalid e-mail and password combination'))
+                .show(context);
+          }, (success) => null);
+        });
       },
       builder: (context, state) {
         return Form(
+          autovalidateMode:
+              context.read<SignInFormBloc>().state.showErrorMessages
+                  ? AutovalidateMode.always
+                  : AutovalidateMode.disabled,
           child: Padding(
             padding: const EdgeInsets.all(32.0),
             child: Card(
@@ -36,6 +53,21 @@ class RegisterForm extends StatelessWidget {
                         icon: Icon(Icons.email),
                         labelText: "E-mail",
                       ),
+                      autocorrect: false,
+                      onChanged: (val) {
+                        context
+                            .read<SignInFormBloc>()
+                            .add(SignInFormEvent.emailChanged(val));
+                      },
+                      validator: (_) {
+                        return context
+                                .read<SignInFormBloc>()
+                                .state
+                                .emailAddress
+                                .isValid()
+                            ? null
+                            : 'Invalid E-mail';
+                      },
                     ),
                   ),
                   Padding(
@@ -45,6 +77,22 @@ class RegisterForm extends StatelessWidget {
                         icon: Icon(Icons.lock),
                         labelText: "Password",
                       ),
+                      obscureText: true,
+                      autocorrect: false,
+                      onChanged: (val) {
+                        context
+                            .read<SignInFormBloc>()
+                            .add(SignInFormEvent.passwordChanged(val));
+                      },
+                      validator: (_) {
+                        return context
+                                .read<SignInFormBloc>()
+                                .state
+                                .password
+                                .isValid()
+                            ? null
+                            : 'Password should be atleast 6 characters long ';
+                      },
                     ),
                   ),
                   Padding(
@@ -53,7 +101,11 @@ class RegisterForm extends StatelessWidget {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.read<SignInFormBloc>().add(
+                                  const SignInFormEvent
+                                      .registerWithEmailAndPasswordPressed());
+                            },
                             child: const Text("Register"),
                           ),
                         ),

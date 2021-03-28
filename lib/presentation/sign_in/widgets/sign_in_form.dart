@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -11,10 +12,25 @@ class SignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
-        // TODO: implement listener
+        state.authFailureSuccessOrFailureOption.fold(() => null, (either) {
+          either.fold((failure) {
+            FlushbarHelper.createError(
+                    message: failure.map(
+                        cancelledByUser: (_) => 'Cancelled',
+                        serverError: (_) => 'Server Error',
+                        emailAlreadyInUse: (_) => 'E-mail already in use',
+                        invalidEmailAndPasswordCombination: (_) =>
+                            'Invalid e-mail and password combination'))
+                .show(context);
+          }, (success) => null);
+        });
       },
       builder: (context, state) {
         return Form(
+          autovalidateMode:
+              context.read<SignInFormBloc>().state.showErrorMessages
+                  ? AutovalidateMode.always
+                  : AutovalidateMode.disabled,
           child: Padding(
             padding: const EdgeInsets.all(32.0),
             child: Card(
@@ -38,6 +54,22 @@ class SignInForm extends StatelessWidget {
                         icon: Icon(Icons.email),
                         labelText: "E-mail",
                       ),
+                      autocorrect: false,
+                      onChanged: (val) {
+                        context
+                            .read<SignInFormBloc>()
+                            .add(SignInFormEvent.emailChanged(val));
+                      },
+                      // ignore: missing_return
+                      validator: (_) {
+                        return context
+                                .read<SignInFormBloc>()
+                                .state
+                                .emailAddress
+                                .isValid()
+                            ? null
+                            : 'Invalid E-mail';
+                      },
                     ),
                   ),
                   Padding(
@@ -47,6 +79,23 @@ class SignInForm extends StatelessWidget {
                         icon: Icon(Icons.lock),
                         labelText: "Password",
                       ),
+                      obscureText: true,
+                      autocorrect: false,
+                      onChanged: (val) {
+                        context
+                            .read<SignInFormBloc>()
+                            .add(SignInFormEvent.passwordChanged(val));
+                      },
+                      // ignore: missing_return
+                      validator: (_) {
+                        return context
+                                .read<SignInFormBloc>()
+                                .state
+                                .password
+                                .isValid()
+                            ? null
+                            : 'Password should be atleast 6 characters long';
+                      },
                     ),
                   ),
                   Padding(
@@ -55,7 +104,11 @@ class SignInForm extends StatelessWidget {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.read<SignInFormBloc>().add(
+                                  const SignInFormEvent
+                                      .loginWithEmailAndPasswordPressed());
+                            },
                             child: const Text("Sign In"),
                           ),
                         ),
@@ -65,25 +118,6 @@ class SignInForm extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: OrDivider(),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 16.0, right: 16.0, top: 8.0),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton.icon(
-                            icon: const Icon(FontAwesome.facebook),
-                            style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        ThemeColors.facebookBlue)),
-                            onPressed: () {},
-                            label: const Text("Sign In with Facebook"),
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -100,7 +134,11 @@ class SignInForm extends StatelessWidget {
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
                                         Colors.white)),
-                            onPressed: () {},
+                            onPressed: () {
+                              context.read<SignInFormBloc>().add(
+                                  const SignInFormEvent
+                                      .signInWithGooglePressed());
+                            },
                             label: const Text(
                               "Sign In with Google",
                               style: TextStyle(color: Colors.red),

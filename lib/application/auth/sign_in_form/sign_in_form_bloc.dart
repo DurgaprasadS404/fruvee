@@ -23,37 +23,43 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   Stream<SignInFormState> mapEventToState(
     SignInFormEvent event,
   ) async* {
-    yield* event.map(emailChanged: (e) async* {
-      yield state.copyWith(
-        emailAddress: EmailAddress(e.emailStr),
-        authFailureSuccessOrFailureOption: none(),
-      );
-    }, passwordChanged: (e) async* {
-      yield state.copyWith(
-        password: Password(e.passwordStr),
-        authFailureSuccessOrFailureOption: none(),
-      );
-    }, registerWithEmailAndPasswordPressed: (e) async* {
-      yield* _performActionOnEmailAndPassword(
-        _authFacade.registerWithEmailAndPassword,
-      );
-    }, loginWithEmailAndPasswordPressed: (e) async* {
-      yield* _performActionOnEmailAndPassword(
-        _authFacade.signInWithEmailAndPassword,
-      );
-    }, signInWithGooglePressed: (e) async* {
-      yield state.copyWith(
-        isSubmitting: true,
-        authFailureSuccessOrFailureOption: none(),
-      );
+    yield* event.map(
+      emailChanged: (e) async* {
+        yield state.copyWith(
+          emailAddress: EmailAddress(e.emailStr),
+          authFailureSuccessOrFailureOption: none(),
+        );
+      },
+      passwordChanged: (e) async* {
+        yield state.copyWith(
+          password: Password(e.passwordStr),
+          authFailureSuccessOrFailureOption: none(),
+        );
+      },
+      registerWithEmailAndPasswordPressed: (e) async* {
+        yield* _performActionOnEmailAndPassword(
+          _authFacade.registerWithEmailAndPassword,
+        );
+      },
+      loginWithEmailAndPasswordPressed: (e) async* {
+        yield* _performActionOnEmailAndPassword(
+          _authFacade.signInWithEmailAndPassword,
+        );
+      },
+      signInWithGooglePressed: (e) async* {
+        yield state.copyWith(
+          isSubmitting: true,
+          authFailureSuccessOrFailureOption: none(),
+        );
 
-      final failureOrSuccess = await _authFacade.signInWithGoogle();
+        final failureOrSuccess = await _authFacade.signInWithGoogle();
 
-      yield state.copyWith(
-        isSubmitting: false,
-        authFailureSuccessOrFailureOption: some(failureOrSuccess),
-      );
-    });
+        yield state.copyWith(
+          isSubmitting: false,
+          authFailureSuccessOrFailureOption: some(failureOrSuccess),
+        );
+      },
+    );
   }
 
   Stream<SignInFormState> _performActionOnEmailAndPassword(

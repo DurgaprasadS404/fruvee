@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruvee/presentation/core/constants/theme_datas.dart';
 import 'package:fruvee/presentation/register/register_page.dart';
+import 'package:fruvee/presentation/sign_in/sign_in_page.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 
@@ -12,7 +13,7 @@ class AppWidget extends StatelessWidget {
       title: 'Fruvee',
       themeMode: ThemeMode.dark,
       darkTheme: ThemeDatas.darkThemeData,
-      home: RegisterPage(),
+      home: SignInPage(),
       builder: (context, widget) => ResponsiveWrapper.builder(
         BouncingScrollWrapper.builder(context, widget),
         maxWidth: 1200,
