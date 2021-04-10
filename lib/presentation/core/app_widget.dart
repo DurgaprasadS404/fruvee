@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fruvee/presentation/core/constants/theme_datas.dart';
-import 'package:fruvee/presentation/register/register_page.dart';
 import 'package:fruvee/presentation/sign_in/sign_in_page.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
