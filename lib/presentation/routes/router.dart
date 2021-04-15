@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route_annotations.dart';
 import 'package:fruvee/application/auth/auth_bloc.dart';
+import 'package:fruvee/presentation/bottom%20tabs/bottom_tab_page.dart';
 import 'package:fruvee/presentation/home/home_page.dart';
 import 'package:fruvee/presentation/register/register_page.dart';
 import 'package:fruvee/presentation/sign_in/sign_in_page.dart';
@@ -11,6 +12,7 @@ import 'package:fruvee/presentation/splash/splash_page.dart';
     MaterialRoute(page: SignInPage),
     MaterialRoute(page: RegisterPage),
     MaterialRoute(page: HomePage),
+    MaterialRoute(page: BottomTabPage),
   ],
   generateNavigationHelperExtension: true,
 )
@@ -20,4 +22,5 @@ class $LocalRouter {
   SignInPage signInPage;
   RegisterPage registerPage;
   HomePage homePage;
+  BottomTabPage bottomTabPage;
 }

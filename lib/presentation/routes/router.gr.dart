@@ -9,6 +9,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../bottom%20tabs/bottom_tab_page.dart';
 import '../home/home_page.dart';
 import '../register/register_page.dart';
 import '../sign_in/sign_in_page.dart';
@@ -19,11 +20,13 @@ class Routes {
   static const String signInPage = '/sign-in-page';
   static const String registerPage = '/register-page';
   static const String homePage = '/home-page';
+  static const String bottomTabPage = '/bottom-tab-page';
   static const all = <String>{
     splashPage,
     signInPage,
     registerPage,
     homePage,
+    bottomTabPage,
   };
 }
 
@@ -35,6 +38,7 @@ class LocalRouter extends RouterBase {
     RouteDef(Routes.signInPage, page: SignInPage),
     RouteDef(Routes.registerPage, page: RegisterPage),
     RouteDef(Routes.homePage, page: HomePage),
+    RouteDef(Routes.bottomTabPage, page: BottomTabPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -63,6 +67,12 @@ class LocalRouter extends RouterBase {
         settings: data,
       );
     },
+    BottomTabPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => BottomTabPage(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -78,4 +88,6 @@ extension LocalRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushRegisterPage() => push<dynamic>(Routes.registerPage);
 
   Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
+
+  Future<dynamic> pushBottomTabPage() => push<dynamic>(Routes.bottomTabPage);
 }
