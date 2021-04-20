@@ -18,13 +18,13 @@ class _$MovieOrShowTearOff {
       {@required Title name,
       @required PosterUrl posterUrl,
       @required bool isBookmarked,
-      bool inWatchList,
+      bool inWatchedList,
       Rating rating}) {
     return _MovieOrShow(
       name: name,
       posterUrl: posterUrl,
       isBookmarked: isBookmarked,
-      inWatchList: inWatchList,
+      inWatchedList: inWatchedList,
       rating: rating,
     );
   }
@@ -39,7 +39,7 @@ mixin _$MovieOrShow {
   Title get name;
   PosterUrl get posterUrl;
   bool get isBookmarked;
-  bool get inWatchList;
+  bool get inWatchedList;
   Rating get rating;
 
   @JsonKey(ignore: true)
@@ -55,7 +55,7 @@ abstract class $MovieOrShowCopyWith<$Res> {
       {Title name,
       PosterUrl posterUrl,
       bool isBookmarked,
-      bool inWatchList,
+      bool inWatchedList,
       Rating rating});
 }
 
@@ -72,7 +72,7 @@ class _$MovieOrShowCopyWithImpl<$Res> implements $MovieOrShowCopyWith<$Res> {
     Object name = freezed,
     Object posterUrl = freezed,
     Object isBookmarked = freezed,
-    Object inWatchList = freezed,
+    Object inWatchedList = freezed,
     Object rating = freezed,
   }) {
     return _then(_value.copyWith(
@@ -81,8 +81,9 @@ class _$MovieOrShowCopyWithImpl<$Res> implements $MovieOrShowCopyWith<$Res> {
           posterUrl == freezed ? _value.posterUrl : posterUrl as PosterUrl,
       isBookmarked:
           isBookmarked == freezed ? _value.isBookmarked : isBookmarked as bool,
-      inWatchList:
-          inWatchList == freezed ? _value.inWatchList : inWatchList as bool,
+      inWatchedList: inWatchedList == freezed
+          ? _value.inWatchedList
+          : inWatchedList as bool,
       rating: rating == freezed ? _value.rating : rating as Rating,
     ));
   }
@@ -99,7 +100,7 @@ abstract class _$MovieOrShowCopyWith<$Res>
       {Title name,
       PosterUrl posterUrl,
       bool isBookmarked,
-      bool inWatchList,
+      bool inWatchedList,
       Rating rating});
 }
 
@@ -118,7 +119,7 @@ class __$MovieOrShowCopyWithImpl<$Res> extends _$MovieOrShowCopyWithImpl<$Res>
     Object name = freezed,
     Object posterUrl = freezed,
     Object isBookmarked = freezed,
-    Object inWatchList = freezed,
+    Object inWatchedList = freezed,
     Object rating = freezed,
   }) {
     return _then(_MovieOrShow(
@@ -127,24 +128,26 @@ class __$MovieOrShowCopyWithImpl<$Res> extends _$MovieOrShowCopyWithImpl<$Res>
           posterUrl == freezed ? _value.posterUrl : posterUrl as PosterUrl,
       isBookmarked:
           isBookmarked == freezed ? _value.isBookmarked : isBookmarked as bool,
-      inWatchList:
-          inWatchList == freezed ? _value.inWatchList : inWatchList as bool,
+      inWatchedList: inWatchedList == freezed
+          ? _value.inWatchedList
+          : inWatchedList as bool,
       rating: rating == freezed ? _value.rating : rating as Rating,
     ));
   }
 }
 
 /// @nodoc
-class _$_MovieOrShow implements _MovieOrShow {
+class _$_MovieOrShow extends _MovieOrShow {
   const _$_MovieOrShow(
       {@required this.name,
       @required this.posterUrl,
       @required this.isBookmarked,
-      this.inWatchList,
+      this.inWatchedList,
       this.rating})
       : assert(name != null),
         assert(posterUrl != null),
-        assert(isBookmarked != null);
+        assert(isBookmarked != null),
+        super._();
 
   @override
   final Title name;
@@ -153,13 +156,13 @@ class _$_MovieOrShow implements _MovieOrShow {
   @override
   final bool isBookmarked;
   @override
-  final bool inWatchList;
+  final bool inWatchedList;
   @override
   final Rating rating;
 
   @override
   String toString() {
-    return 'MovieOrShow(name: $name, posterUrl: $posterUrl, isBookmarked: $isBookmarked, inWatchList: $inWatchList, rating: $rating)';
+    return 'MovieOrShow(name: $name, posterUrl: $posterUrl, isBookmarked: $isBookmarked, inWatchedList: $inWatchedList, rating: $rating)';
   }
 
   @override
@@ -174,9 +177,9 @@ class _$_MovieOrShow implements _MovieOrShow {
             (identical(other.isBookmarked, isBookmarked) ||
                 const DeepCollectionEquality()
                     .equals(other.isBookmarked, isBookmarked)) &&
-            (identical(other.inWatchList, inWatchList) ||
+            (identical(other.inWatchedList, inWatchedList) ||
                 const DeepCollectionEquality()
-                    .equals(other.inWatchList, inWatchList)) &&
+                    .equals(other.inWatchedList, inWatchedList)) &&
             (identical(other.rating, rating) ||
                 const DeepCollectionEquality().equals(other.rating, rating)));
   }
@@ -187,7 +190,7 @@ class _$_MovieOrShow implements _MovieOrShow {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(posterUrl) ^
       const DeepCollectionEquality().hash(isBookmarked) ^
-      const DeepCollectionEquality().hash(inWatchList) ^
+      const DeepCollectionEquality().hash(inWatchedList) ^
       const DeepCollectionEquality().hash(rating);
 
   @JsonKey(ignore: true)
@@ -196,12 +199,13 @@ class _$_MovieOrShow implements _MovieOrShow {
       __$MovieOrShowCopyWithImpl<_MovieOrShow>(this, _$identity);
 }
 
-abstract class _MovieOrShow implements MovieOrShow {
+abstract class _MovieOrShow extends MovieOrShow {
+  const _MovieOrShow._() : super._();
   const factory _MovieOrShow(
       {@required Title name,
       @required PosterUrl posterUrl,
       @required bool isBookmarked,
-      bool inWatchList,
+      bool inWatchedList,
       Rating rating}) = _$_MovieOrShow;
 
   @override
@@ -211,7 +215,7 @@ abstract class _MovieOrShow implements MovieOrShow {
   @override
   bool get isBookmarked;
   @override
-  bool get inWatchList;
+  bool get inWatchedList;
   @override
   Rating get rating;
   @override

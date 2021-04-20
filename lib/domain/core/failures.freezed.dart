@@ -30,6 +30,14 @@ class _$ValueFailureTearOff {
   }
 
 // ignore: unused_element
+  ListTooLong<T> listTooLong<T>({@required T failedValue, @required int max}) {
+    return ListTooLong<T>(
+      failedValue: failedValue,
+      max: max,
+    );
+  }
+
+// ignore: unused_element
   InvalidEmail<T> invalidEmail<T>({@required T failedValue}) {
     return InvalidEmail<T>(
       failedValue: failedValue,
@@ -77,6 +85,7 @@ mixin _$ValueFailure<T> {
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int maxLength),
     @required TResult emptyString(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(T failedValue),
     @required TResult shortPassword(T failedValue),
     @required TResult noName(T failedValue),
@@ -87,6 +96,7 @@ mixin _$ValueFailure<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int maxLength),
     TResult emptyString(T failedValue),
+    TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(T failedValue),
     TResult shortPassword(T failedValue),
     TResult noName(T failedValue),
@@ -98,6 +108,7 @@ mixin _$ValueFailure<T> {
   TResult map<TResult extends Object>({
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult emptyString(EmptyString<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
     @required TResult shortPassword(ShortPassword<T> value),
     @required TResult noName(NoName<T> value),
@@ -108,6 +119,7 @@ mixin _$ValueFailure<T> {
   TResult maybeMap<TResult extends Object>({
     TResult exceedingLength(ExceedingLength<T> value),
     TResult emptyString(EmptyString<T> value),
+    TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
     TResult shortPassword(ShortPassword<T> value),
     TResult noName(NoName<T> value),
@@ -227,6 +239,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int maxLength),
     @required TResult emptyString(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(T failedValue),
     @required TResult shortPassword(T failedValue),
     @required TResult noName(T failedValue),
@@ -235,6 +248,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -248,6 +262,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int maxLength),
     TResult emptyString(T failedValue),
+    TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(T failedValue),
     TResult shortPassword(T failedValue),
     TResult noName(T failedValue),
@@ -267,6 +282,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
   TResult map<TResult extends Object>({
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult emptyString(EmptyString<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
     @required TResult shortPassword(ShortPassword<T> value),
     @required TResult noName(NoName<T> value),
@@ -275,6 +291,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -288,6 +305,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
   TResult maybeMap<TResult extends Object>({
     TResult exceedingLength(ExceedingLength<T> value),
     TResult emptyString(EmptyString<T> value),
+    TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
     TResult shortPassword(ShortPassword<T> value),
     TResult noName(NoName<T> value),
@@ -384,6 +402,7 @@ class _$EmptyString<T> implements EmptyString<T> {
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int maxLength),
     @required TResult emptyString(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(T failedValue),
     @required TResult shortPassword(T failedValue),
     @required TResult noName(T failedValue),
@@ -392,6 +411,7 @@ class _$EmptyString<T> implements EmptyString<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -405,6 +425,7 @@ class _$EmptyString<T> implements EmptyString<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int maxLength),
     TResult emptyString(T failedValue),
+    TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(T failedValue),
     TResult shortPassword(T failedValue),
     TResult noName(T failedValue),
@@ -424,6 +445,7 @@ class _$EmptyString<T> implements EmptyString<T> {
   TResult map<TResult extends Object>({
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult emptyString(EmptyString<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
     @required TResult shortPassword(ShortPassword<T> value),
     @required TResult noName(NoName<T> value),
@@ -432,6 +454,7 @@ class _$EmptyString<T> implements EmptyString<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -445,6 +468,7 @@ class _$EmptyString<T> implements EmptyString<T> {
   TResult maybeMap<TResult extends Object>({
     TResult exceedingLength(ExceedingLength<T> value),
     TResult emptyString(EmptyString<T> value),
+    TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
     TResult shortPassword(ShortPassword<T> value),
     TResult noName(NoName<T> value),
@@ -468,6 +492,177 @@ abstract class EmptyString<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   $EmptyStringCopyWith<T, EmptyString<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class $ListTooLongCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $ListTooLongCopyWith(
+          ListTooLong<T> value, $Res Function(ListTooLong<T>) then) =
+      _$ListTooLongCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue, int max});
+}
+
+/// @nodoc
+class _$ListTooLongCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $ListTooLongCopyWith<T, $Res> {
+  _$ListTooLongCopyWithImpl(
+      ListTooLong<T> _value, $Res Function(ListTooLong<T>) _then)
+      : super(_value, (v) => _then(v as ListTooLong<T>));
+
+  @override
+  ListTooLong<T> get _value => super._value as ListTooLong<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+    Object max = freezed,
+  }) {
+    return _then(ListTooLong<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+      max: max == freezed ? _value.max : max as int,
+    ));
+  }
+}
+
+/// @nodoc
+class _$ListTooLong<T> implements ListTooLong<T> {
+  const _$ListTooLong({@required this.failedValue, @required this.max})
+      : assert(failedValue != null),
+        assert(max != null);
+
+  @override
+  final T failedValue;
+  @override
+  final int max;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.listTooLong(failedValue: $failedValue, max: $max)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ListTooLong<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)) &&
+            (identical(other.max, max) ||
+                const DeepCollectionEquality().equals(other.max, max)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failedValue) ^
+      const DeepCollectionEquality().hash(max);
+
+  @JsonKey(ignore: true)
+  @override
+  $ListTooLongCopyWith<T, ListTooLong<T>> get copyWith =>
+      _$ListTooLongCopyWithImpl<T, ListTooLong<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult exceedingLength(T failedValue, int maxLength),
+    @required TResult emptyString(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
+    @required TResult invalidEmail(T failedValue),
+    @required TResult shortPassword(T failedValue),
+    @required TResult noName(T failedValue),
+    @required TResult noCoverImage(T failedValue),
+    @required TResult noRating(T failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(emptyString != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(noName != null);
+    assert(noCoverImage != null);
+    assert(noRating != null);
+    return listTooLong(failedValue, max);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult exceedingLength(T failedValue, int maxLength),
+    TResult emptyString(T failedValue),
+    TResult listTooLong(T failedValue, int max),
+    TResult invalidEmail(T failedValue),
+    TResult shortPassword(T failedValue),
+    TResult noName(T failedValue),
+    TResult noCoverImage(T failedValue),
+    TResult noRating(T failedValue),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (listTooLong != null) {
+      return listTooLong(failedValue, max);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult emptyString(EmptyString<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
+    @required TResult invalidEmail(InvalidEmail<T> value),
+    @required TResult shortPassword(ShortPassword<T> value),
+    @required TResult noName(NoName<T> value),
+    @required TResult noCoverImage(NoCoverImage<T> value),
+    @required TResult noRating(NoRating<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(emptyString != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(noName != null);
+    assert(noCoverImage != null);
+    assert(noRating != null);
+    return listTooLong(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult emptyString(EmptyString<T> value),
+    TResult listTooLong(ListTooLong<T> value),
+    TResult invalidEmail(InvalidEmail<T> value),
+    TResult shortPassword(ShortPassword<T> value),
+    TResult noName(NoName<T> value),
+    TResult noCoverImage(NoCoverImage<T> value),
+    TResult noRating(NoRating<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (listTooLong != null) {
+      return listTooLong(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListTooLong<T> implements ValueFailure<T> {
+  const factory ListTooLong({@required T failedValue, @required int max}) =
+      _$ListTooLong<T>;
+
+  @override
+  T get failedValue;
+  int get max;
+  @override
+  @JsonKey(ignore: true)
+  $ListTooLongCopyWith<T, ListTooLong<T>> get copyWith;
 }
 
 /// @nodoc
@@ -538,6 +733,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int maxLength),
     @required TResult emptyString(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(T failedValue),
     @required TResult shortPassword(T failedValue),
     @required TResult noName(T failedValue),
@@ -546,6 +742,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -559,6 +756,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int maxLength),
     TResult emptyString(T failedValue),
+    TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(T failedValue),
     TResult shortPassword(T failedValue),
     TResult noName(T failedValue),
@@ -578,6 +776,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   TResult map<TResult extends Object>({
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult emptyString(EmptyString<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
     @required TResult shortPassword(ShortPassword<T> value),
     @required TResult noName(NoName<T> value),
@@ -586,6 +785,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -599,6 +799,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   TResult maybeMap<TResult extends Object>({
     TResult exceedingLength(ExceedingLength<T> value),
     TResult emptyString(EmptyString<T> value),
+    TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
     TResult shortPassword(ShortPassword<T> value),
     TResult noName(NoName<T> value),
@@ -692,6 +893,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int maxLength),
     @required TResult emptyString(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(T failedValue),
     @required TResult shortPassword(T failedValue),
     @required TResult noName(T failedValue),
@@ -700,6 +902,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -713,6 +916,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int maxLength),
     TResult emptyString(T failedValue),
+    TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(T failedValue),
     TResult shortPassword(T failedValue),
     TResult noName(T failedValue),
@@ -732,6 +936,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult map<TResult extends Object>({
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult emptyString(EmptyString<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
     @required TResult shortPassword(ShortPassword<T> value),
     @required TResult noName(NoName<T> value),
@@ -740,6 +945,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -753,6 +959,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult maybeMap<TResult extends Object>({
     TResult exceedingLength(ExceedingLength<T> value),
     TResult emptyString(EmptyString<T> value),
+    TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
     TResult shortPassword(ShortPassword<T> value),
     TResult noName(NoName<T> value),
@@ -842,6 +1049,7 @@ class _$NoName<T> implements NoName<T> {
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int maxLength),
     @required TResult emptyString(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(T failedValue),
     @required TResult shortPassword(T failedValue),
     @required TResult noName(T failedValue),
@@ -850,6 +1058,7 @@ class _$NoName<T> implements NoName<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -863,6 +1072,7 @@ class _$NoName<T> implements NoName<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int maxLength),
     TResult emptyString(T failedValue),
+    TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(T failedValue),
     TResult shortPassword(T failedValue),
     TResult noName(T failedValue),
@@ -882,6 +1092,7 @@ class _$NoName<T> implements NoName<T> {
   TResult map<TResult extends Object>({
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult emptyString(EmptyString<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
     @required TResult shortPassword(ShortPassword<T> value),
     @required TResult noName(NoName<T> value),
@@ -890,6 +1101,7 @@ class _$NoName<T> implements NoName<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -903,6 +1115,7 @@ class _$NoName<T> implements NoName<T> {
   TResult maybeMap<TResult extends Object>({
     TResult exceedingLength(ExceedingLength<T> value),
     TResult emptyString(EmptyString<T> value),
+    TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
     TResult shortPassword(ShortPassword<T> value),
     TResult noName(NoName<T> value),
@@ -996,6 +1209,7 @@ class _$NoCoverImage<T> implements NoCoverImage<T> {
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int maxLength),
     @required TResult emptyString(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(T failedValue),
     @required TResult shortPassword(T failedValue),
     @required TResult noName(T failedValue),
@@ -1004,6 +1218,7 @@ class _$NoCoverImage<T> implements NoCoverImage<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -1017,6 +1232,7 @@ class _$NoCoverImage<T> implements NoCoverImage<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int maxLength),
     TResult emptyString(T failedValue),
+    TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(T failedValue),
     TResult shortPassword(T failedValue),
     TResult noName(T failedValue),
@@ -1036,6 +1252,7 @@ class _$NoCoverImage<T> implements NoCoverImage<T> {
   TResult map<TResult extends Object>({
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult emptyString(EmptyString<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
     @required TResult shortPassword(ShortPassword<T> value),
     @required TResult noName(NoName<T> value),
@@ -1044,6 +1261,7 @@ class _$NoCoverImage<T> implements NoCoverImage<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -1057,6 +1275,7 @@ class _$NoCoverImage<T> implements NoCoverImage<T> {
   TResult maybeMap<TResult extends Object>({
     TResult exceedingLength(ExceedingLength<T> value),
     TResult emptyString(EmptyString<T> value),
+    TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
     TResult shortPassword(ShortPassword<T> value),
     TResult noName(NoName<T> value),
@@ -1148,6 +1367,7 @@ class _$NoRating<T> implements NoRating<T> {
   TResult when<TResult extends Object>({
     @required TResult exceedingLength(T failedValue, int maxLength),
     @required TResult emptyString(T failedValue),
+    @required TResult listTooLong(T failedValue, int max),
     @required TResult invalidEmail(T failedValue),
     @required TResult shortPassword(T failedValue),
     @required TResult noName(T failedValue),
@@ -1156,6 +1376,7 @@ class _$NoRating<T> implements NoRating<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -1169,6 +1390,7 @@ class _$NoRating<T> implements NoRating<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult exceedingLength(T failedValue, int maxLength),
     TResult emptyString(T failedValue),
+    TResult listTooLong(T failedValue, int max),
     TResult invalidEmail(T failedValue),
     TResult shortPassword(T failedValue),
     TResult noName(T failedValue),
@@ -1188,6 +1410,7 @@ class _$NoRating<T> implements NoRating<T> {
   TResult map<TResult extends Object>({
     @required TResult exceedingLength(ExceedingLength<T> value),
     @required TResult emptyString(EmptyString<T> value),
+    @required TResult listTooLong(ListTooLong<T> value),
     @required TResult invalidEmail(InvalidEmail<T> value),
     @required TResult shortPassword(ShortPassword<T> value),
     @required TResult noName(NoName<T> value),
@@ -1196,6 +1419,7 @@ class _$NoRating<T> implements NoRating<T> {
   }) {
     assert(exceedingLength != null);
     assert(emptyString != null);
+    assert(listTooLong != null);
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(noName != null);
@@ -1209,6 +1433,7 @@ class _$NoRating<T> implements NoRating<T> {
   TResult maybeMap<TResult extends Object>({
     TResult exceedingLength(ExceedingLength<T> value),
     TResult emptyString(EmptyString<T> value),
+    TResult listTooLong(ListTooLong<T> value),
     TResult invalidEmail(InvalidEmail<T> value),
     TResult shortPassword(ShortPassword<T> value),
     TResult noName(NoName<T> value),

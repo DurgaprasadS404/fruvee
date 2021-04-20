@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:fruvee/domain/core/failures.dart';
+import 'package:kt_dart/kt.dart';
 
 Either<ValueFailure<String>, String> validateMaxStringLength(
     String input, int maxLength) {
@@ -34,5 +35,19 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
     return right(input);
   } else {
     return left(ValueFailure.shortPassword(failedValue: input));
+  }
+}
+
+Either<ValueFailure<KtList<T>>, KtList<T>> validateMaxListLength<T>(
+  KtList<T> input,
+  int maxLength,
+) {
+  if (input.size <= maxLength) {
+    return right(input);
+  } else {
+    return left(ValueFailure.listTooLong(
+      failedValue: input,
+      max: maxLength,
+    ));
   }
 }

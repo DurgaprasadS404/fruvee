@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, unused_element
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'home_bloc.dart';
 
@@ -13,20 +13,24 @@ T _$identity<T>(T value) => value;
 class _$HomeEventTearOff {
   const _$HomeEventTearOff();
 
+// ignore: unused_element
   _Started started() {
     return const _Started();
   }
 
+// ignore: unused_element
   ProfilePicturePressed profilePicturePressed() {
     return const ProfilePicturePressed();
   }
 
+// ignore: unused_element
   SearchPressed searchPressed() {
     return const SearchPressed();
   }
 }
 
 /// @nodoc
+// ignore: unused_element
 const $HomeEvent = _$HomeEventTearOff();
 
 /// @nodoc
@@ -365,20 +369,24 @@ abstract class SearchPressed implements HomeEvent {
 class _$HomeStateTearOff {
   const _$HomeStateTearOff();
 
+// ignore: unused_element
   Initial initial() {
     return const Initial();
   }
 
+// ignore: unused_element
   Authenticated authenticated() {
     return const Authenticated();
   }
 
+// ignore: unused_element
   Unauthenticated unauthenticated() {
     return const Unauthenticated();
   }
 }
 
 /// @nodoc
+// ignore: unused_element
 const $HomeState = _$HomeStateTearOff();
 
 /// @nodoc

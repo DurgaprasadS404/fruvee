@@ -9,6 +9,10 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.emptyString({
     @required T failedValue,
   }) = EmptyString<T>;
+  const factory ValueFailure.listTooLong({
+    @required T failedValue,
+    @required int max,
+  }) = ListTooLong<T>;
   //AuthFailures
   const factory ValueFailure.invalidEmail({@required T failedValue}) =
       InvalidEmail<T>;
